@@ -36,13 +36,13 @@ alias dex="docker exec -i -t"
 dstop() { docker stop $(docker ps -a -q); }
 
 # Remove all containers
-drm() { docker rm $(docker ps -a -q); }
+dcrma() { echo -n "Remove All Containers, sure? ";read i; if [ "$i" == "y" ];then docker rm $(docker ps -a -q); else echo "NO!!";fi }
 
 # Stop and Remove all containers
-alias drmf='docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q)'
+alias drmf='dstop;dcrma'
 
 # Remove all images
-dri() { docker rmi $(docker images -q); }
+dirma() { echo -n "Remove All images, sure? ";read i; if [ "$i" == "y" ];then docker rmi $(docker images -q); else echo "NO!!";fi  }
 
 # Dockerfile build, e.g., $dbu tcnksm/test 
 dbu() { docker build -t=$1 .; }
