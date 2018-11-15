@@ -9,10 +9,16 @@ alias dl="docker ps -l -q"
 alias dps="docker ps"
 
 # Get process included stop container
-alias dpa="docker ps -a"
+alias dpsa="docker ps -a"
 
 # Get images
 alias di="docker images"
+
+# Remove a container
+alias dcrm='docker container rm'
+
+#Remove an image
+alias dirm='docker image rm'
 
 # Get container IP
 alias dip="docker inspect --format '{{ .NetworkSettings.IPAddress }}'"
